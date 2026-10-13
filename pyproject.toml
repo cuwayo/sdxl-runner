@@ -1,0 +1,37 @@
+[project]
+name = "sdxl-runner"
+version = "0.1.0"
+description = "Run Animagine XL 4.0 Zero on a cloud GPU from your machine."
+readme = "README.md"
+authors = [
+    { name = "cuwayo", email = "100044423+cuwayo@users.noreply.github.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "gradio_client>=1.0,<2.0",
+    "pillow>=10.0",
+]
+
+[project.optional-dependencies]
+server = [
+    "gradio>=5.0,<6.0",
+    "torch",
+    "diffusers>=0.31",
+    "transformers",
+    "accelerate",
+    "safetensors",
+    "peft",
+]
+
+[project.scripts]
+sdxl-runner = "sdxl_runner.cli:main"
+sdxl-server = "sdxl_runner.server.launch:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"

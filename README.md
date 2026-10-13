@@ -40,7 +40,7 @@ Requires Google's Colab CLI: `pip install google-colab-cli` (and `colab auth log
 ```bash
 # Provision a T4 GPU, install deps, and start the server in the background.
 # Prints the public URL and the exact client command to run next.
-PKG="sdxl-runner[server] @ git+https://github.com/<you>/sdxl-runner.git" \
+PKG="sdxl-runner[server] @ git+https://github.com/cuwayo/sdxl-runner.git" \
   scripts/colab_up.sh
 ```
 
@@ -73,7 +73,7 @@ the cell returns; add `SDXL_MOCK=1` for a no-model wiring test.
 ### Option B — inside a notebook
 
 ```bash
-pip install "sdxl-runner[server] @ git+https://github.com/<you>/sdxl-runner.git"
+pip install "sdxl-runner[server] @ git+https://github.com/cuwayo/sdxl-runner.git"
 sdxl-server --port 8000
 ```
 
@@ -83,7 +83,7 @@ It prints a banner with the **public URL**. Or use the ready-made notebook:
 ### 2. On your machine
 
 ```bash
-pip install "sdxl-runner @ git+https://github.com/<you>/sdxl-runner.git"
+pip install "sdxl-runner @ git+https://github.com/cuwayo/sdxl-runner.git"
 
 sdxl-runner generate \
   --url https://xxxx.trycloudflare.com \

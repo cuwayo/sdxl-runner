@@ -35,14 +35,21 @@ from your terminal with Google's Colab CLI; **Option B** runs it inside a notebo
 
 ### Option A — Colab CLI (terminal only, no browser)
 
-Requires Google's Colab CLI: `pip install google-colab-cli` (and `colab auth login` once).
+Requires Google's Colab CLI: `uv tool install google-colab-cli` (or
+`pip install google-colab-cli`). The first command opens a browser once to sign
+in to Google; after that it runs headless.
 
 ```bash
-# Provision a T4 GPU, install deps, and start the server in the background.
-# Prints the public URL and the exact client command to run next.
+# 1. Sign in (opens a browser once; credentials are cached).
+colab new -s sdxl --gpu T4
+
+# 2. Provision + install + start the server in one step.
 PKG="sdxl-runner[server] @ git+https://github.com/cuwayo/sdxl-runner.git" \
   scripts/colab_up.sh
 ```
+
+`scripts/colab_up.sh` reuses the session from step 1 if it exists, so you can
+skip straight to it. It prints the public URL and the exact client command.
 
 Then, on the same machine, run the printed command:
 
